@@ -1,5 +1,6 @@
-package kmn.marduk.mapper;
+package kmn.marduk.common;
 
+import kmn.marduk.common.Mapper;
 import kmn.marduk.entity.Marduk;
 
 import java.sql.ResultSet;
