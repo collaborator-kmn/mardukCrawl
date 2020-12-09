@@ -1,4 +1,4 @@
-package ale.entity;
+package main.entity;
 
 import java.util.Date;
 
@@ -54,7 +54,7 @@ public class DataBaseAle {
     public void setAle_EL(double ale_EL){this.ale_EL = ale_EL;}
 
     public String toString(){
-        return "ale.entity.DataBaseAle{" +
+        return "main.java.DataBaseAle{" +
                 " ale_datatime=" + ale_datatime +
                 ", ale_frequency=" + ale_frequency +
                 ", ale_place=" + ale_place + '\'' +

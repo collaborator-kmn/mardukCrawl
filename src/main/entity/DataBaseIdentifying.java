@@ -1,4 +1,4 @@
-package identifying.entity;
+package main.entity;
 
 import java.util.Date;
 
@@ -63,7 +63,7 @@ public class DataBaseIdentifying {
     public void setDBIdentifying_EL(double DBIdentifying_EL){this.DBIdentifying_EL = DBIdentifying_EL;}
 
     public String toString(){
-        return "identifying.entity.DataBaseIdentifying{" +
+        return "main.java.DataBaseIdentifying{" +
                 " DBIdentifying_datatime=" + DBIdentifying_datatime +
                 ", DBIdentifying_frequency=" + DBIdentifying_frequency +
                 ", DBIdentifying_place=" + DBIdentifying_place + '\'' +

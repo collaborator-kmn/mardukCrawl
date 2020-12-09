@@ -1,11 +1,9 @@
-package marduk;
+package main.mapper;
 
-import marduk.Mapper;
-import marduk.entity.Marduk;
+import main.entity.Marduk;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 
 public class MardukMapper implements Mapper<Marduk, SQLException> {
 
