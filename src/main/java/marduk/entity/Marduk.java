@@ -1,4 +1,4 @@
-package marduk;
+package marduk.entity;
 
 import java.sql.Time;
 import java.util.Date;
@@ -25,7 +25,7 @@ public class Marduk {
     private String marduk_country; // страна
     private String marduk_typeVS; // вид ВС (Местоположение)
     private String marduk_RadioNetwork; // р.сеть
-    private String marduk_session;// сеанс (номер оператора)
+    private int marduk_session;// сеанс (номер оператора)
     private String marduk_placeWork; // место работы опр. автоматически
     private String marduk_countryWork;// страна работы опр. автоматически
     private String marduk_regionWork;// регион работы опр. автоматически
@@ -41,7 +41,7 @@ public class Marduk {
     public int getMarduk_mark() { return marduk_mark;}
     public void setMarduk_mark(int marduk_mark){this.marduk_mark = marduk_mark;}
     public Date getMarduk_date() { return marduk_date;}
-    public void setM_data(Date m_date){this.marduk_date = m_date;}
+    public void setMarduk_date(Date marduk_date){this.marduk_date = marduk_date;}
     public Time getMarduk_time() {return marduk_time;}
     public void setMarduk_time(Time marduk_time){this.marduk_time = marduk_time;}
     public double getMarduk_frequency() {return marduk_frequency;}
@@ -78,8 +78,8 @@ public class Marduk {
     public void setMarduk_typeVS(String marduk_typeVS) {this.marduk_typeVS = marduk_typeVS;}
     public String getMarduk_RadioNetwork() {return marduk_RadioNetwork;}
     public void setMarduk_RadioNetwork(String marduk_RadioNetwork){this.marduk_RadioNetwork = marduk_RadioNetwork;}
-    public String getMarduk_session() {return marduk_session;}
-    public void setMarduk_session(String marduk_session){this.marduk_session = marduk_session;}
+    public int getMarduk_session() {return marduk_session;}
+    public void setMarduk_session(int marduk_session){this.marduk_session = marduk_session;}
     public String getMarduk_placeWork() {return marduk_placeWork;}
     public void setMarduk_placeWork(String marduk_placeWork) {this.marduk_placeWork = marduk_placeWork;}
     public String getMarduk_countryWork() {return marduk_countryWork;}

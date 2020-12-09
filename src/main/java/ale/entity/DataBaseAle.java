@@ -3,6 +3,7 @@ package ale.entity;
 import java.util.Date;
 
 public class DataBaseAle {
+    private long ale_id;
     private Date ale_datatime;
     private double ale_frequency;
     private String ale_place;
@@ -19,6 +20,8 @@ public class DataBaseAle {
     private double ale_NL; //С.Ш.
     private double ale_EL; //В.Д.
 
+    public long getAle_id(){return ale_id;}
+    public void setAle_id(long ale_id){this.ale_id = ale_id;}
     public Date getAle_datatime() { return ale_datatime;}
     public void setAle_datatime(Date a_datatime){this.ale_datatime = a_datatime;}
     public double getAle_frequency() {return ale_frequency;}

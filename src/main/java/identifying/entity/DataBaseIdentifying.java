@@ -3,6 +3,7 @@ package identifying.entity;
 import java.util.Date;
 
 public class DataBaseIdentifying {
+    private long DBI_id;
     private Date DBIdentifying_datatime;
     private double DBIdentifying_frequency;
     private String DBIdentifying_place;
@@ -22,6 +23,8 @@ public class DataBaseIdentifying {
     private double DBIdentifying_NL; //С.Ш.
     private double DBIdentifying_EL; //В.Д.
 
+    public long getDBI_id(){return DBI_id;}
+    public void setDBI_id(long DBI_id){this.DBI_id = DBI_id;}
     public Date getDBIdentifying_datatime() { return DBIdentifying_datatime;}
     public void setDBIdentifying_datatime(Date DBIdentifying_datatime){this.DBIdentifying_datatime = DBIdentifying_datatime;}
     public double getDBIdentifying_frequency() {return DBIdentifying_frequency;}
