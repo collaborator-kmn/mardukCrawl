@@ -1,4 +1,4 @@
-package main.db;
+package kmn.marduk.db;
 
 
 public class ConnectorException extends Exception {

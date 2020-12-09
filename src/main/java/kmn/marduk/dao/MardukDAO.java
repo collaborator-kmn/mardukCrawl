@@ -1,9 +1,11 @@
-package main.dao;
+package kmn.marduk.dao;
 
-import main.entity.Marduk;
+
+import kmn.marduk.entity.Marduk;
 
 import java.util.Date;
 import java.util.List;
+
 
 public interface MardukDAO {
     List<Marduk> get(Date start, Date end);

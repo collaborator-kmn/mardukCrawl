@@ -1,6 +1,6 @@
-package main.mapper;
+package kmn.marduk.mapper;
 
-import main.entity.Marduk;
+import kmn.marduk.entity.Marduk;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

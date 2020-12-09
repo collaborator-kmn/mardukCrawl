@@ -1,10 +1,9 @@
-package main.dao;
+package kmn.marduk.dao;
 
-import main.entity.Marduk;
-import main.db.Connector;
-import main.db.ConnectorException;
-import main.mapper.Mapper;
-import main.mapper.MardukMapper;
+import kmn.marduk.db.Connector;
+import kmn.marduk.mapper.Mapper;
+import kmn.marduk.entity.Marduk;
+import kmn.marduk.mapper.MardukMapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 
 public class MardukOracleDAO implements MardukDAO {
     private Connector<Connection> connector;

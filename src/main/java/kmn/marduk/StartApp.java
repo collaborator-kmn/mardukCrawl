@@ -1,8 +1,9 @@
-package main;
+package kmn.marduk;
 
-import main.dao.MardukDAO;
-import main.dao.MardukOracleDAO;
-import main.entity.Marduk;
+
+import kmn.marduk.dao.MardukDAO;
+import kmn.marduk.dao.MardukOracleDAO;
+import kmn.marduk.entity.Marduk;
 
 import java.time.LocalDate;
 import java.time.ZoneId;

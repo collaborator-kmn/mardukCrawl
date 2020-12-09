@@ -1,4 +1,4 @@
-package main.entity;
+package kmn.marduk.entity;
 
 import java.sql.Time;
 import java.util.Date;
