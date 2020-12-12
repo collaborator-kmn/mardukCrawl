@@ -1,27 +1,29 @@
 package kmn.marduk.common;
 
-import kmn.marduk.db.Connector;
-import kmn.marduk.db.ConnectorException;
-import kmn.marduk.db.OracleHandle;
+import kmn.marduk.db.*;
+import kmn.marduk.entity.Marduk;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 
 public class MardukOracleFactory implements MardukFactory{
 
-    private final Connector<OracleHandle> connector;
+    private JDBCConnector jdbcConnector;
 
-    public MardukOracleFactory(Connector <OracleHandle> connector) {
-        this.connector = connector;
+    public MardukOracleFactory(){
+        jdbcConnector.setHandle(new OracleHandle());
     }
 
     @Override
-    public Connector getConnection(){
-        return connector;
+    public Connector<Connection> getConnection() throws ConnectorException {
+        jdbcConnector.connect();
+        return jdbcConnector;
+
     }
 
     @Override
-    public Mapper getMapper() {
+    public Mapper<Marduk, SQLException> getMapper() {
         return new MardukMapper();
     }
 }

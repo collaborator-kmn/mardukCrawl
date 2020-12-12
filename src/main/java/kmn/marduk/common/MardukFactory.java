@@ -1,8 +1,13 @@
 package kmn.marduk.common;
 import kmn.marduk.db.Connector;
+import kmn.marduk.db.ConnectorException;
+import kmn.marduk.entity.Marduk;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public interface MardukFactory {
-    Connector getConnection();
-    Mapper getMapper();
+    Connector<Connection> getConnection() throws  ConnectorException;
+    Mapper<Marduk, SQLException> getMapper();
 
 }
