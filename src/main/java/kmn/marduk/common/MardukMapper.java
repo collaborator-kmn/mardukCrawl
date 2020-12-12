@@ -1,6 +1,5 @@
 package kmn.marduk.common;
 
-import kmn.marduk.common.Mapper;
 import kmn.marduk.entity.Marduk;
 
 import java.sql.ResultSet;
@@ -10,7 +9,7 @@ public class MardukMapper implements Mapper<Marduk, SQLException> {
 
     public Marduk process(ResultSet resultSet) throws SQLException {
         Marduk marduk = new Marduk();
-        marduk.setMarduk_id(resultSet.getLong("id"));;
+        marduk.setMarduk_id(resultSet.getLong("id"));
         marduk.setMarduk_date(resultSet.getDate("date"));
         marduk.setMarduk_frequency(resultSet.getDouble("frequency"));
         marduk.setMarduk_placeWork(resultSet.getString("place"));
