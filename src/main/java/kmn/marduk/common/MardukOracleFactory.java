@@ -13,8 +13,8 @@ public class MardukOracleFactory implements MardukFactory{
 
     private Connector<Connection> connector;
 
-    public MardukOracleFactory(Connector<Connection> connector){
-        this.connector = connector;
+    public MardukOracleFactory(Properties properties){
+        this.connector = new JDBCConnector(new OracleHandle(properties));
     }
 
     @Override
@@ -27,9 +27,8 @@ public class MardukOracleFactory implements MardukFactory{
         return new MardukMapper();
     }
 
-    public static MardukFactory newInstance() {
-        Properties properties = ReaderUtils.readMardukResources();
-        return new MardukOracleFactory(new JDBCConnector(new OracleHandle(properties)));
+    public static MardukFactory newInstance(Properties properties) {
+        return new MardukOracleFactory(properties);
     }
 
 }

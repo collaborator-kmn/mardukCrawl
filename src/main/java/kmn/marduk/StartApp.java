@@ -5,6 +5,7 @@ import kmn.marduk.common.MardukOracleFactory;
 import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.dao.MardukOracleDAO;
 import kmn.marduk.entity.Marduk;
+import kmn.marduk.utils.ReaderUtils;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public class StartApp {
     public static void main(String[] args) {
-        MardukDAO dao = new MardukOracleDAO(MardukOracleFactory.newInstance());
+        MardukDAO dao = new MardukOracleDAO(MardukOracleFactory.newInstance(ReaderUtils.readMardukResources()));
         List<Marduk> list = dao.get(
                 convert(LocalDate.of(2020,11,1)),
                 convert(LocalDate.of(2020,12,1))
