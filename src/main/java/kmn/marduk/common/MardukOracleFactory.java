@@ -27,8 +27,8 @@ public class MardukOracleFactory implements MardukFactory{
         return new MardukMapper();
     }
 
-    public static MardukFactory newInstance(Properties properties) {
-        return new MardukOracleFactory(properties);
+    public static MardukFactory newInstance() {
+        return new MardukOracleFactory(ReaderUtils.readMardukResources());
     }
 
 }

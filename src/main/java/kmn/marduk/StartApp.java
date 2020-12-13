@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class StartApp {
     public static void main(String[] args) {
-        MardukDAO dao = new MardukOracleDAO(MardukOracleFactory.newInstance(ReaderUtils.readMardukResources()));
+        MardukDAO dao = new MardukOracleDAO(MardukOracleFactory.newInstance());
         List<Marduk> list = dao.get(
                 convert(LocalDate.of(2020,11,1)),
                 convert(LocalDate.of(2020,12,1))
