@@ -1,7 +1,5 @@
 package kmn.marduk.db;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.util.Optional;
@@ -27,10 +25,8 @@ public class MardukConnection implements Connector<Connection> {
         }
     }
 
-    private static Optional<MardukConnection> defaultConnection(String properties) throws FileNotFoundException {
-        FileInputStream inputStream = new FileInputStream(properties);
+    private static Optional<MardukConnection> defaultConnection(InputStream inputStream) {
         Optional<Properties> perhaps = defaultProperties(inputStream);
-
         return perhaps.map(MardukConnection::new);
     }
 
