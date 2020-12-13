@@ -7,7 +7,7 @@ import java.util.Properties;
  */
 public class ReaderUtils {
 
-    public Properties readMardukResources() {
+    public static Properties readMardukResources() {
         //прочитать этот файл и вернуть книенту этот Properties
         return new Properties();
     }

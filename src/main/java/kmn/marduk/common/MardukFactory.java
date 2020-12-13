@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public interface MardukFactory {
+
     Connector<Connection> getConnection() ;
     Mapper<Marduk, SQLException> getMapper();
 

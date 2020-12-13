@@ -1,8 +1,10 @@
 package kmn.marduk.dao;
 
+import kmn.marduk.common.MardukFactory;
 import kmn.marduk.common.MardukOracleFactory;
 import kmn.marduk.db.Connector;
 import kmn.marduk.common.Mapper;
+import kmn.marduk.db.ConnectorException;
 import kmn.marduk.db.OracleHandle;
 import kmn.marduk.entity.Marduk;
 import kmn.marduk.common.MardukMapper;
@@ -18,32 +20,28 @@ import java.util.List;
 
 public class MardukOracleDAO implements MardukDAO {
 
-    MardukOracleFactory mardukFactory;
+    MardukFactory mardukFactory;
 
-    public MardukOracleDAO(MardukOracleFactory mardukFactory) {
+    public MardukOracleDAO(MardukFactory mardukFactory) {
         this.mardukFactory = mardukFactory;
     }
 
 
     public List<Marduk> get(Date start, Date end) {
-        List<Marduk> list = null;
-        try {
-            Connection connection = (Connection) mardukFactory.getConnection().connect();
+        List<Marduk> list = new ArrayList<>();
+        try(Connection connection = mardukFactory.getConnection().connect();
             PreparedStatement statement = connection.prepareStatement("select * from table");
-            ResultSet resultSet = statement.executeQuery();
+            ResultSet resultSet = statement.executeQuery()) {
             {
-                list = new ArrayList<>();
-//                Mapper<Marduk, SQLException> mapper = new MardukMapper();
+                Mapper<Marduk, SQLException> mapper = mardukFactory.getMapper();
                 while (resultSet.next()) {
-                    list.add((Marduk) mardukFactory.getMapper().process(resultSet));
+                    list.add(mapper.process(resultSet));
                 }
                 resultSet.close();
                 statement.close();
             }
-        } catch (Exception e) {
+        } catch (ConnectorException | SQLException e) {
             System.out.println(e.getMessage());
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
         }
         return list;
     }
