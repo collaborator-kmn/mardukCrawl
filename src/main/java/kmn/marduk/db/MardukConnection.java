@@ -7,12 +7,11 @@ import java.util.Properties;
 
 public class MardukConnection implements Connector<Connection> {
 
-    private final Properties mardukProperties;
+    private  Properties mardukProperties;
 
     public MardukConnection(Properties properties) {
         this.mardukProperties = properties;
     }
-
 
     private static Optional<Properties> defaultProperties(InputStream inputStream) {
         try {
