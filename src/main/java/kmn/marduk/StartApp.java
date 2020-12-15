@@ -5,9 +5,7 @@ import kmn.marduk.common.MardukOracleFactory;
 import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.dao.MardukOracleDAO;
 import kmn.marduk.db.ConnectorException;
-import kmn.marduk.db.MardukConnection;
 import kmn.marduk.entity.Marduk;
-import kmn.marduk.utils.ReaderUtils;
 
 import java.time.LocalDate;
 import java.time.ZoneId;

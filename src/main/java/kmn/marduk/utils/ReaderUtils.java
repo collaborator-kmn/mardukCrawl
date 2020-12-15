@@ -10,11 +10,10 @@ public class ReaderUtils {
    FileInputStream fis = null;
    Properties properties = new Properties();
 
-   public String getUsername(){return readMardukResources().getProperty("username");}
-   public char[] getPassword(){return readMardukResources().getProperty("password").toCharArray();}
-   public String getDatabase(){return readMardukResources().getProperty("database");}
-   public String getServer(){return readMardukResources().getProperty("server");}
-   public int getPort() { return Integer.parseInt(readMardukResources().getProperty("port"));}
+   public ReaderUtils() {
+
+   }
+
 
     public Properties readMardukResources() {
 

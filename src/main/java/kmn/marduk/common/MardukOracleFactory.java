@@ -8,15 +8,17 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 
-public class MardukOracleFactory implements MardukFactory{
+public class MardukOracleFactory implements MardukSQLFactory {
+    private final JDBCConnector jdbcConnector;
 
-
-    public MardukOracleFactory(){
+    public MardukOracleFactory(ReaderUtils readerUtils){
+         jdbcConnector = new JDBCConnector(new OracleHandle(readerUtils.readMardukResources()));
     }
 
     @Override
-    public Connector<Connection> getConnection() {
-        return new MardukConnection(new ReaderUtils().readMardukResources());
+//    Connector поменять на Connection
+    public Connection getConnection() throws ConnectorException {
+        return jdbcConnector.connect();
     }
 
     @Override

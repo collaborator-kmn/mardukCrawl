@@ -6,8 +6,8 @@ import kmn.marduk.entity.Marduk;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public interface MardukFactory {
-    Connector<Connection> getConnection() ;
+public interface MardukSQLFactory {
+    Connection  getConnection() throws ConnectorException;
     Mapper<Marduk, SQLException> getMapper();
 
 }

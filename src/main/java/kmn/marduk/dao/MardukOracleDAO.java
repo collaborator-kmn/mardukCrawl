@@ -28,14 +28,13 @@ public class MardukOracleDAO implements MardukDAO {
     public List<Marduk> get(Date start, Date end) {
         List<Marduk> list = null;
         try {
-            Connection connection = (Connection) mardukFactory.getConnection().connect();
+            Connection connection = mardukFactory.getConnection();
             PreparedStatement statement = connection.prepareStatement("select * from table");
             ResultSet resultSet = statement.executeQuery();
             {
                 list = new ArrayList<>();
-//                Mapper<Marduk, SQLException> mapper = new MardukMapper();
                 while (resultSet.next()) {
-                    list.add((Marduk) mardukFactory.getMapper().process(resultSet));
+                    list.add(mardukFactory.getMapper().process(resultSet));
                 }
                 resultSet.close();
                 statement.close();
