@@ -8,12 +8,13 @@ import java.util.Properties;
  * Nickolay Burdiladze
  */
 public class ReaderUtils {
-   Properties properties = new Properties();
+
 
    public ReaderUtils() {
    }
 
-    public Properties readMardukResources(){
+    public static Properties readMardukResources(){
+        Properties properties = new Properties();
 
         try(FileInputStream fis = new FileInputStream("/Users/mihail/IdeaProjects/mardukCrawl/src/main/resources/marduk.properties")){
             properties.load(fis);
