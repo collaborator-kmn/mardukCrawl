@@ -16,7 +16,6 @@ public class MardukOracleFactory implements MardukSQLFactory {
     }
 
     @Override
-//    Connector поменять на Connection
     public Connection getConnection() throws ConnectorException {
         return jdbcConnector.connect();
     }

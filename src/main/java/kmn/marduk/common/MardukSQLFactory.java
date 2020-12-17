@@ -1,5 +1,4 @@
 package kmn.marduk.common;
-import kmn.marduk.db.Connector;
 import kmn.marduk.db.ConnectorException;
 import kmn.marduk.entity.Marduk;
 
