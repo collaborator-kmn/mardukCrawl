@@ -3,24 +3,18 @@ package kmn.marduk.core;
 import kmn.marduk.common.processor.Processor;
 import kmn.marduk.dao.DBIdentifyingDAO;
 import kmn.marduk.dao.MardukDAO;
-
-import java.util.Date;
+import kmn.marduk.entity.DataBaseIdentifying;
+import kmn.marduk.entity.Marduk;
 
 public class ContextImpl implements  Context{
     private MardukDAO mardukDAO;
     private DBIdentifyingDAO dbIdentifyingDAO;
-    private Processor<?, ?> processor;
-    private Date start;
-    private Date end;
+    private Processor<Marduk, DataBaseIdentifying> processor;
 
-    public ContextImpl(MardukDAO mardukDAO, DBIdentifyingDAO dbIdentifyingDAO, Processor<?,?> processor,
-                       Date start, Date end){
+    public ContextImpl(MardukDAO mardukDAO, DBIdentifyingDAO dbIdentifyingDAO, Processor<Marduk, DataBaseIdentifying> processor){
         this.mardukDAO = mardukDAO;
         this.dbIdentifyingDAO = dbIdentifyingDAO;
         this.processor = processor;
-        this.start = start;
-        this.end = end;
-
     }
 
     @Override
@@ -34,7 +28,7 @@ public class ContextImpl implements  Context{
     }
 
     @Override
-    public Processor<?, ?> getProcess() {
+    public Processor<Marduk, DataBaseIdentifying> getProcess() {
        return processor;
     }
 }
