@@ -2,7 +2,6 @@ package kmn.marduk;
 
 
 import kmn.marduk.common.impl.MardukOracleFactory;
-import kmn.marduk.core.impl.Transporter;
 import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.dao.impl.MardukOracleDAO;
 import kmn.marduk.entity.Marduk;
