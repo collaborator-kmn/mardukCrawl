@@ -1,4 +1,4 @@
-package kmn.marduk.db;
+package kmn.marduk.db.impl;
 
 import java.util.Properties;
 

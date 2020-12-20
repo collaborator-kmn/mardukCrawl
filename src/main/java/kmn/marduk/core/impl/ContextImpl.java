@@ -1,12 +1,13 @@
-package kmn.marduk.core;
+package kmn.marduk.core.impl;
 
 import kmn.marduk.common.processor.Processor;
+import kmn.marduk.core.Context;
 import kmn.marduk.dao.DBIdentifyingDAO;
 import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.entity.DataBaseIdentifying;
 import kmn.marduk.entity.Marduk;
 
-public class ContextImpl implements  Context{
+public class ContextImpl implements Context {
     private MardukDAO mardukDAO;
     private DBIdentifyingDAO dbIdentifyingDAO;
     private Processor<Marduk, DataBaseIdentifying> processor;

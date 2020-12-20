@@ -10,5 +10,4 @@ public interface  Context {
     MardukDAO getMardukEntity();
     DBIdentifyingDAO setDBIdentifying();
     Processor<Marduk, DataBaseIdentifying> getProcess();
-
 }

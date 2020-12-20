@@ -1,4 +1,6 @@
-package kmn.marduk.db;
+package kmn.marduk.db.impl;
+
+import kmn.marduk.db.Connector;
 
 import java.sql.Connection;
 import java.sql.SQLException;

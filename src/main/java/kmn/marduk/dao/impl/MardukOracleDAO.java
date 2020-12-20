@@ -1,16 +1,12 @@
-package kmn.marduk.dao;
+package kmn.marduk.dao.impl;
 
-import kmn.marduk.common.MardukOracleFactory;
-import kmn.marduk.db.Connector;
-import kmn.marduk.common.Mapper;
-import kmn.marduk.db.OracleHandle;
+import kmn.marduk.common.impl.MardukOracleFactory;
+import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.entity.Marduk;
-import kmn.marduk.common.MardukMapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

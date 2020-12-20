@@ -1,4 +1,4 @@
-package kmn.marduk.common;
+package kmn.marduk.common.impl;
 
 import kmn.marduk.common.processor.ProcessException;
 import kmn.marduk.common.processor.Processor;
@@ -7,7 +7,7 @@ import kmn.marduk.entity.Marduk;
 
 public class Marduk2DBIdentifyingProcessor implements Processor<Marduk, DataBaseIdentifying> {
     @Override
-    public DataBaseIdentifying process(Marduk marduk) throws ProcessException {
+    public DataBaseIdentifying process(Marduk marduk)  {
         DataBaseIdentifying dataBaseIdentifying = new DataBaseIdentifying();
         dataBaseIdentifying.setDBIdentifying_datatime(marduk.getMarduk_date());
         dataBaseIdentifying.setDBIdentifying_frequency(marduk.getMarduk_frequency());

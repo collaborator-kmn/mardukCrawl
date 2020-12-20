@@ -1,8 +1,10 @@
 package kmn.marduk.db;
 
-import java.util.Optional;
+import kmn.marduk.db.impl.ConnectorException;
+
+//метод для подключения к конкретному хранилищу данных
 
 public interface Connector<T> {
-    //метод для подключения к конкретному хранилищу данных
+
     T connect() throws ConnectorException;
 }
