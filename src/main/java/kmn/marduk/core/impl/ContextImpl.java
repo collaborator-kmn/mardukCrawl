@@ -19,12 +19,12 @@ public class ContextImpl implements Context {
     }
 
     @Override
-    public MardukDAO getMardukEntity() {
+    public MardukDAO getMardukDao() {
         return mardukDAO;
     }
 
     @Override
-    public DBIdentifyingDAO setDBIdentifying() {
+    public DBIdentifyingDAO getDBIdentifyingDao() {
         return dbIdentifyingDAO;
     }
 

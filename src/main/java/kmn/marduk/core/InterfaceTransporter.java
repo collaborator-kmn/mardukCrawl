@@ -6,5 +6,5 @@ import kmn.marduk.entity.DataBaseIdentifying;
 import java.util.List;
 
 public interface InterfaceTransporter {
-    List<DataBaseIdentifying> run() throws ProcessException;
+    void run();
 }

@@ -7,7 +7,7 @@ import kmn.marduk.entity.DataBaseIdentifying;
 import kmn.marduk.entity.Marduk;
 
 public interface  Context {
-    MardukDAO getMardukEntity();
-    DBIdentifyingDAO setDBIdentifying();
+    MardukDAO getMardukDao();
+    DBIdentifyingDAO getDBIdentifyingDao();
     Processor<Marduk, DataBaseIdentifying> getProcess();
 }

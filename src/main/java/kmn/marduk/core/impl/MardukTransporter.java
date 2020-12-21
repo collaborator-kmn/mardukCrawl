@@ -17,8 +17,8 @@ import java.util.Properties;
 
 public class MardukTransporter extends AbstractTransporter implements InterfaceTransporter {
     private final Properties properties;
-    private final Date start;
-    private final Date end;
+    private final Date start ;
+    private final Date end ;
     private Marduk marduk;
 
 
@@ -28,14 +28,17 @@ public class MardukTransporter extends AbstractTransporter implements InterfaceT
         this.end = end;
     }
 
-    public List<DataBaseIdentifying> run() throws ProcessException {
-        List<Marduk> listMardukEntity = getContext().getMardukEntity().get(start, end);
-        List<DataBaseIdentifying> listDataBaseIdentifying = getContext().setDBIdentifying().set(start, end);
+    public void run() {
+        List<Marduk> listMardukEntity = getContext().getMardukDao().get(start, end);
+        List<DataBaseIdentifying> listDataBaseIdentifying = getContext().getDBIdentifyingDao().set(start, end);
 
         while (listMardukEntity.listIterator().hasNext()){
-            listDataBaseIdentifying.add(getContext().getProcess().process(marduk));
+            try {
+                listDataBaseIdentifying.add(getContext().getProcess().process(marduk));
+            } catch (ProcessException e) {
+                e.printStackTrace();
+            }
         }
-        return listDataBaseIdentifying;
     }
 
 
