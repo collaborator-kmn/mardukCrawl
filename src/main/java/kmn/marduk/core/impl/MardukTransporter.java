@@ -36,7 +36,8 @@ public class MardukTransporter extends AbstractTransporter implements InterfaceT
                 e.printStackTrace();
             }
         }
-        getContext().getDBIdentifyingDao().put(listDataBaseIdentifying);
+
+        getContext().getDBIdentifyingDao().put(listDataBaseIdentifying, start, end);
     }
 
 }
