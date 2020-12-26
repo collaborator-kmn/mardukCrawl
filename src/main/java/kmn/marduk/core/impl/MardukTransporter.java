@@ -3,7 +3,6 @@ package kmn.marduk.core.impl;
 import kmn.marduk.common.processor.ProcessException;
 import kmn.marduk.core.Context;
 import kmn.marduk.core.AbstractTransporter;
-import kmn.marduk.core.InterfaceTransporter;
 import kmn.marduk.entity.DataBaseIdentifying;
 import kmn.marduk.entity.Marduk;
 
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MardukTransporter extends AbstractTransporter implements InterfaceTransporter {
+public class MardukTransporter extends AbstractTransporter {
     private Date start;
     private Date end;
 
@@ -37,7 +36,7 @@ public class MardukTransporter extends AbstractTransporter implements InterfaceT
             }
         }
 
-        getContext().getDBIdentifyingDao().put(listDataBaseIdentifying, start, end);
+        getContext().getDBIdentifyingDao().put(listDataBaseIdentifying);
     }
 
 }

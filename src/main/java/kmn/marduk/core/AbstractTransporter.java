@@ -1,7 +1,7 @@
 package kmn.marduk.core;
 
 
-public abstract class AbstractTransporter implements InterfaceTransporter {
+public abstract class AbstractTransporter implements Transporter {
 
    private Context context;
 

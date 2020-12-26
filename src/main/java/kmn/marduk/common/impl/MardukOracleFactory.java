@@ -6,6 +6,7 @@ import kmn.marduk.db.impl.ConnectorException;
 import kmn.marduk.db.impl.JDBCConnector;
 import kmn.marduk.db.impl.OracleHandle;
 import kmn.marduk.entity.Marduk;
+import kmn.marduk.utils.FileUtils;
 import kmn.marduk.utils.ReaderUtils;
 
 import java.sql.Connection;
@@ -31,7 +32,7 @@ public class MardukOracleFactory implements MardukFactory {
     }
 
     public static MardukFactory newInstance(){
-        return new MardukOracleFactory(ReaderUtils.readMardukResources());
+        return new MardukOracleFactory(ReaderUtils.readPropertiesFromFile(FileUtils.mardukLocation()));
     }
 
 }

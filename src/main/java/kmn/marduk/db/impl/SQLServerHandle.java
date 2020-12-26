@@ -3,7 +3,7 @@ package kmn.marduk.db.impl;
 import java.util.Properties;
 
 public class SQLServerHandle extends JDBCHandle{
-    private final String DRIVE_NAME = "sqlServer.jdbc.driver.SqlServerDriver";
+    private final String DRIVER_NAME = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
     public SQLServerHandle(){super();}
 
@@ -12,26 +12,26 @@ public class SQLServerHandle extends JDBCHandle{
     }
     @Override
     protected String getDefaultCharset() {
-        return "WIN1212";
+        return "utf8";
     }
 
     @Override
     protected int getDefaultPort() {
-        return 1702;
+        return 1433;
     }
 
     @Override
     public String getDriverClassName() {
-        return DRIVE_NAME;
+        return DRIVER_NAME;
     }
 
     @Override
     public String getURL() {
-        return "jdbc:sql:thin:@"+getServer()+":"+getPort()+"/"+getDatabase();
+        return "jdbc:sqlserver://localhost:1433;databaseName=PUBS";
     }
 
     @Override
     public String charsetTag() {
-        return "WIN1212";
+        return "utf8";
     }
 }

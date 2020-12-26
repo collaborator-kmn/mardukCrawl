@@ -1,5 +1,5 @@
 package kmn.marduk.core;
 
-public interface InterfaceTransporter {
+public interface Transporter {
     void run();
 }

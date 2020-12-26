@@ -13,10 +13,10 @@ public class ReaderUtils {
    public ReaderUtils() {
    }
 
-    public static Properties readMardukResources(){
+    public static Properties readPropertiesFromFile(String file){
         Properties properties = new Properties();
 
-        try(FileInputStream fis = new FileInputStream("/Users/mihail/IdeaProjects/mardukCrawl/src/main/resources/marduk.properties")){
+        try(FileInputStream fis = new FileInputStream(file)){
             properties.load(fis);
             return properties;
         } catch (IOException e) {

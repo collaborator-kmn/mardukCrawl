@@ -6,5 +6,5 @@ import java.util.Date;
 import java.util.List;
 
 public interface DBIdentifyingDAO {
-    void put(List<DataBaseIdentifying> list, Date start, Date end);
+    void put(List<DataBaseIdentifying> list);
 }
