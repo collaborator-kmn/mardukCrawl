@@ -3,6 +3,7 @@ package kmn.marduk.dao.impl;
 import kmn.marduk.common.impl.MardukOracleFactory;
 import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.entity.Marduk;
+import kmn.marduk.utils.Date_Settings;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,6 +23,8 @@ public class MardukOracleDAO implements MardukDAO {
 
 
     public List<Marduk> get(Date start, Date end) {
+        new Date_Settings(start, end);
+
         List<Marduk> list = null;
         try {
             Connection connection = mardukFactory.getConnection();
