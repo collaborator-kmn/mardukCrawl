@@ -5,8 +5,7 @@ import kmn.marduk.common.impl.MardukOracleFactory;
 import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.dao.impl.MardukOracleDAO;
 import kmn.marduk.entity.Marduk;
-import kmn.marduk.utils.Date_Settings;
-import kmn.marduk.utils.ReaderUtils;
+import kmn.marduk.utils.SettingStorage;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -25,24 +24,17 @@ public class StartApp {
 //
 //         MardukTransporter mardukTransporter = new MardukTransporter(new ContextImpl((new MardukOracleDAO(new MardukOracleFactory(properties))),
 //                new DBIdentifyingSQLServerDAO(), new Marduk2DBIdentifyingProcessor()));
-
-        Date_Settings date_settings;
+        SettingStorage settingStorage = new SettingStorage();
+//        System.out.println(settingStorage.getStartDate());
+//        System.out.println(settingStorage.getEndDate());
 
         MardukDAO dao = new MardukOracleDAO((MardukOracleFactory) MardukOracleFactory.newInstance());
 
         List<Marduk> list = dao.get(
-                convert(LocalDate.of(2020,11,1)),
-                convert(LocalDate.of(2020,12,1))
+                settingStorage.getStartDate(), settingStorage.getEndDate()
         );
 
        list.forEach(System.out::println);
-//        list.forEach(System.out.println(list.get()););
-    }
-
-    private static Date convert(LocalDate dateToConvert) {
-        return java.util.Date.from(dateToConvert.atStartOfDay()
-                .atZone(ZoneId.systemDefault())
-                .toInstant());
     }
 
 }

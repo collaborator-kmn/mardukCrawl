@@ -12,7 +12,8 @@ public class ContextImpl implements Context {
     private DBIdentifyingDAO dbIdentifyingDAO;
     private Processor<Marduk, DataBaseIdentifying> processor;
 
-    public ContextImpl(MardukDAO mardukDAO, DBIdentifyingDAO dbIdentifyingDAO, Processor<Marduk, DataBaseIdentifying> processor){
+    public ContextImpl(MardukDAO mardukDAO, DBIdentifyingDAO dbIdentifyingDAO, Processor<Marduk, DataBaseIdentifying> processor
+                       ){
         this.mardukDAO = mardukDAO;
         this.dbIdentifyingDAO = dbIdentifyingDAO;
         this.processor = processor;
@@ -32,4 +33,5 @@ public class ContextImpl implements Context {
     public Processor<Marduk, DataBaseIdentifying> getProcess() {
        return processor;
     }
+
 }
