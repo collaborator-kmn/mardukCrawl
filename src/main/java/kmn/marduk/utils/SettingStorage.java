@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.Objects;
 
 public class SettingStorage {
     public static final String HOME_PATH = System.getProperty("user.home")+ File.separator+".crawl";
@@ -22,48 +23,19 @@ public class SettingStorage {
             Files.createDirectories(Paths.get(HOME_PATH));
             if (!Files.exists(Paths.get(MARDUK_PROPERTIES)) && !Files.exists(Paths.get(SQLSERVER_PROPERTIES))) {
                 //TODO
-                getClass().getClassLoader().getResource("marduk.properties").getFile();
-                getClass().getClassLoader().getResource("sqlserver.properties").getFile();
-                //files.create
+                byte[] marduk = Objects.requireNonNull(getClass().getClassLoader().getResource("marduk.properties")).getFile().getBytes();
+                Files.write(Paths.get(MARDUK_PROPERTIES), marduk);
+                byte[] sql = Objects.requireNonNull(getClass().getClassLoader().getResource("sqlserver.properties")).getFile().getBytes();
+                Files.write(Paths.get(SQLSERVER_PROPERTIES),sql);
             }
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
     }
 
-    public Date getStartDate(){
-
-        if (Files.exists(Paths.get(DATE_SETTINGS))){
-        ReaderUtils.readPropertiesFromFile(DATE_SETTINGS);
-         }
-    else {
-        LocalDate firstDate = LocalDate.now();
-        LocalTime time = LocalTime.of(9, 00,00);
-        return convertToDate((LocalDateTime.of(firstDate, time)));
-    }
-        return getStartDate();
     }
 
-
-    public Date getEndDate(){
-        if (Files.exists(Paths.get(DATE_SETTINGS))){
-            ReaderUtils.readPropertiesFromFile(DATE_SETTINGS);
-        }
-        else {
-            LocalDate secondDate = LocalDate.now().minusDays(1);
-            LocalTime time = LocalTime.of(9, 00,00);
-            return convertToDate((LocalDateTime.of(secondDate, time)));
-        }
-        return getEndDate();
-    }
-
-
-    public Date convertToDate(LocalDateTime dateToConvert) {
-        return java.sql.Timestamp.valueOf(dateToConvert);
-    }
 
 }
 
