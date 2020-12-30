@@ -16,13 +16,13 @@ import kmn.marduk.utils.SettingStorage;
 public class StartApp {
     public static void main(String[] args) {
 
-        TransporterConfig transporterConfig = new TransporterConfig();
         MardukOracleDAO mardukOracleDAO = new MardukOracleDAO((MardukOracleFactory)MardukOracleFactory.newInstance());
         DBIdentifyingSQLServerDAO dbIdentifyingSQLServerDAO = new DBIdentifyingSQLServerDAO(ReaderUtils.readPropertiesFromFile(SettingStorage.SQLSERVER_PROPERTIES));
         Marduk2DBIdentifyingProcessor marduk2DBIdentifyingProcessor = new Marduk2DBIdentifyingProcessor();
         ContextImpl context = new ContextImpl(mardukOracleDAO, dbIdentifyingSQLServerDAO,marduk2DBIdentifyingProcessor);
 
-        MardukTransporter mardukTransporter = new MardukTransporter(context, transporterConfig.getStartDate(), transporterConfig.getEndDate());
+        MardukTransporter mardukTransporter =
+                new MardukTransporter(context, TransporterConfig.newInstance().getStartDate(), TransporterConfig.newInstance().getEndDate());
 
         mardukTransporter.run();
 
