@@ -3,8 +3,10 @@ package kmn.marduk.core.impl;
 import kmn.marduk.common.processor.ProcessException;
 import kmn.marduk.core.Context;
 import kmn.marduk.core.AbstractTransporter;
+import kmn.marduk.core.Transporter;
 import kmn.marduk.entity.DataBaseIdentifying;
 import kmn.marduk.entity.Marduk;
+import kmn.marduk.utils.TransporterConfig;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,10 +20,10 @@ public class MardukTransporter extends AbstractTransporter {
         super(context);
     }
 
-    public MardukTransporter(Context context, Date start, Date end){
+    public MardukTransporter(Context context, TransporterConfig transporterConfig){
         super(context);
-        this.start = start;
-        this.end = end;
+        this.start = transporterConfig.getStartDate();
+        this.end = transporterConfig.getEndDate();
     }
 
     public void run() {

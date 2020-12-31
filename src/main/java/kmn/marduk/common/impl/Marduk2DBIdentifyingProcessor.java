@@ -17,7 +17,7 @@ public class Marduk2DBIdentifyingProcessor implements Processor<Marduk, DataBase
         dataBaseIdentifying.setOper(marduk.getSEANCE());
 //        dataBaseIdentifying.setTo(marduk.getTO());
 //        dataBaseIdentifying.setFrom(marduk.getFROM());
-        dataBaseIdentifying.setAnal(" ");
+        dataBaseIdentifying.setAnal("");
         return dataBaseIdentifying;
     }
 }

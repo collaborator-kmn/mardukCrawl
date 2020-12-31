@@ -15,6 +15,9 @@ import java.util.Properties;
 
 public class DBIdentifyingSQLServerDAO implements DBIdentifyingDAO {
 
+    private static final String SQL_SELECT = "insert into Table1(id, date, freq, coun, town, num, oper, anal)" +
+            "value((select max(id)+1 from Table1), ?, ?, ?, ?, ?, ?, '')";
+
     private final JDBCConnector jdbcConnector;
 
     public DBIdentifyingSQLServerDAO (Properties properties){
@@ -27,7 +30,7 @@ public class DBIdentifyingSQLServerDAO implements DBIdentifyingDAO {
 
         try {
             Connection connection = jdbcConnector.connect();
-            PreparedStatement statement = connection.prepareStatement("insert * into table");
+            PreparedStatement statement = connection.prepareStatement(SQL_SELECT);
 
             Iterator<DataBaseIdentifying> iterator = list.iterator(); //??
             while (iterator.hasNext()){

@@ -6,37 +6,50 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.Properties;
 
 public class TransporterConfig {
 
-    public TransporterConfig(){
-        if (!Files.exists(Paths.get(SettingStorage.DATE_SETTINGS))) {
-            getStartDate();
-            getEndDate();
-        }
+    Date start;
+    Date end;
+
+    public TransporterConfig(Date start, Date end){
+        this.start = start;
+        this.end = end;
     }
 
     public Date getStartDate(){
-            LocalDate firstDate = LocalDate.now();
-            LocalTime time = LocalTime.of(9, 00,00);
-            return convertToDate((LocalDateTime.of(firstDate, time)));
+            return start;
     }
 
-
     public Date getEndDate(){
-            LocalDate secondDate = LocalDate.now().minusDays(1);
-            LocalTime time = LocalTime.of(9, 00,00);
-            return convertToDate((LocalDateTime.of(secondDate, time)));
+            return end;
     }
 
     public static TransporterConfig newInstance(){
         if (Files.exists(Paths.get(SettingStorage.DATE_SETTINGS))){
-            ReaderUtils.readPropertiesFromFile(SettingStorage.DATE_SETTINGS);
+            Properties properties = ReaderUtils.readPropertiesFromFile(SettingStorage.DATE_SETTINGS);
+            String start = properties.getProperty("start");
+            String end = properties.getProperty("end");
+            LocalDate localDateStart = LocalDate.parse(start);
+            LocalDate localDateEnd = LocalDate.parse(end);
+            Date dateStart = converter(localDateStart);
+            Date dateEnd = converter(localDateEnd);
+
+            return new TransporterConfig(dateStart, dateEnd);
         }
-        return new TransporterConfig();
+
+        LocalDate firstDate = LocalDate.now();
+        LocalTime time = LocalTime.of(9, 00,00);
+        LocalDate secondDate = LocalDate.now().minusDays(1);
+
+        return new TransporterConfig(convertToDate(LocalDateTime.of(secondDate, time)), convertToDate(LocalDateTime.of(firstDate,time)));
     }
 
-    public Date convertToDate(LocalDateTime dateToConvert) {
+    public static Date convertToDate(LocalDateTime dateToConvert) {
         return java.sql.Timestamp.valueOf(dateToConvert);
+    }
+    public static Date converter(LocalDate dateToConvert) {
+        return java.sql.Date.valueOf(dateToConvert);
     }
 }
