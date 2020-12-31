@@ -10,14 +10,14 @@ public class MardukMapper implements Mapper<Marduk, SQLException> {
 
     public Marduk process(ResultSet resultSet) throws SQLException {
         Marduk marduk = new Marduk();
-        marduk.setDATE_REG(resultSet.getDate("date"));
-        marduk.setFREQ_HZ(resultSet.getString("frequency"));
-        marduk.setWHO_IS_COUNTRY(resultSet.getString("town"));
-        marduk.setWHO_IS_BRANCH(resultSet.getString("country"));
-        marduk.setSIG_TYPE(resultSet.getString("erbd_number"));
-        marduk.setSEANCE(resultSet.getInt("operator"));
-        marduk.setTO(resultSet.getString("to"));
-        marduk.setFROM(resultSet.getString("from"));
+        marduk.setDATE_REG(resultSet.getDate("DATE_BEG"));
+        marduk.setFREQ_HZ(resultSet.getString("FREQ_HZ"));
+        marduk.setWHO_IS_COUNTRY(resultSet.getString("WHO_IS_COUNTRY"));
+        marduk.setWHO_IS_BRANCH(resultSet.getString("WHO_IS_BRANCH"));
+        marduk.setSIG_TYPE(resultSet.getString("SIG_TYPE").equals("--------") ? null : resultSet.getString("SIG_TYPE"));
+        marduk.setSEANCE(resultSet.getInt("SEANCE"));
+//        marduk.setTO(resultSet.getString("to"));
+//        marduk.setFROM(resultSet.getString("from"));
         return marduk;
     }
 }

@@ -27,7 +27,7 @@ public class SQLServerHandle extends JDBCHandle{
 
     @Override
     public String getURL() {
-        return "jdbc:sqlserver://localhost:1433;databaseName=PUBS";
+        return "jdbc:sqlserver://"+getServer()+":"+getPort()+";databaseName="+getDatabase()+";integratedSecurity=false";
     }
 
     @Override

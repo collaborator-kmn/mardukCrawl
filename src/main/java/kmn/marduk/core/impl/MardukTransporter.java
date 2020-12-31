@@ -37,7 +37,6 @@ public class MardukTransporter extends AbstractTransporter {
                 e.printStackTrace();
             }
         }
-
         getContext().getDBIdentifyingDao().put(listDataBaseIdentifying);
     }
 
