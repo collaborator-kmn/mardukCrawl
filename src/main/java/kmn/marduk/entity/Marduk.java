@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Marduk {
 
-    private Date DATE_REG;
+    private Date DATE_BEG;
     private String FREQ_HZ;
     private String WHO_IS_COUNTRY;
     private String WHO_IS_BRANCH;
@@ -14,8 +14,8 @@ public class Marduk {
     private String TO;
     private String FROM;
 
-    public Date getDATE_REG() { return DATE_REG;}
-    public void setDATE_REG(Date DATE_REG){this.DATE_REG = DATE_REG;}
+    public Date getDATE_BEG() { return DATE_BEG;}
+    public void setDATE_BEG(Date DATE_REG){this.DATE_BEG = DATE_BEG;}
     public String getFREQ_HZ() {return FREQ_HZ;}
     public void setFREQ_HZ(String FREQ_HZ){this.FREQ_HZ = FREQ_HZ;}
     public String getWHO_IS_COUNTRY() {return WHO_IS_COUNTRY;}
@@ -33,7 +33,7 @@ public class Marduk {
 
     public String toString(){
         return "marduk.Marduk{" +
-                " DATE_REG=" + DATE_REG +
+                " DATE_BEG=" + DATE_BEG +
                 ", FREQ_HZ=" + FREQ_HZ +'\'' +
                 ", WHO_IS_COUNTRY=" + WHO_IS_COUNTRY +'\'' +
                 ", WHO_IS_BRANCH="+ WHO_IS_BRANCH +'\'' +

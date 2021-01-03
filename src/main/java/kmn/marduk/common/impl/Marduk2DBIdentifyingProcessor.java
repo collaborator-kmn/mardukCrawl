@@ -9,7 +9,7 @@ public class Marduk2DBIdentifyingProcessor implements Processor<Marduk, DataBase
     @Override
     public DataBaseIdentifying process(Marduk marduk)  {
         DataBaseIdentifying dataBaseIdentifying = new DataBaseIdentifying();
-        dataBaseIdentifying.setDate(marduk.getDATE_REG());
+        dataBaseIdentifying.setDate(marduk.getDATE_BEG());
         dataBaseIdentifying.setFreq(marduk.getFREQ_HZ());
         dataBaseIdentifying.setTown(marduk.getWHO_IS_COUNTRY());
         dataBaseIdentifying.setCoun(marduk.getWHO_IS_BRANCH());

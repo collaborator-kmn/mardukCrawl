@@ -28,7 +28,7 @@ public class StartApp {
         Transporter mardukTransporter =
                 new MardukTransporter(context, TransporterConfig.newInstance());
 
-        //mardukTransporter.run();
+        mardukTransporter.run();
 
     }
 

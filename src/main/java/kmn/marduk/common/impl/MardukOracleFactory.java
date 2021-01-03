@@ -6,7 +6,6 @@ import kmn.marduk.db.impl.ConnectorException;
 import kmn.marduk.db.impl.JDBCConnector;
 import kmn.marduk.db.impl.OracleHandle;
 import kmn.marduk.entity.Marduk;
-import kmn.marduk.utils.FileUtils;
 import kmn.marduk.utils.ReaderUtils;
 import kmn.marduk.utils.SettingStorage;
 
