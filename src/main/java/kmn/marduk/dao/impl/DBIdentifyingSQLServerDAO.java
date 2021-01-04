@@ -6,13 +6,13 @@ import kmn.marduk.db.impl.JDBCConnector;
 import kmn.marduk.db.impl.SQLServerHandle;
 import kmn.marduk.entity.DataBaseIdentifying;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+
+//В классе подключаемся к БД SQLServer
+//и кладём данные из списка полученных сущностей в таблицу SQLServer
 
 public class DBIdentifyingSQLServerDAO implements DBIdentifyingDAO {
 
@@ -29,12 +29,11 @@ public class DBIdentifyingSQLServerDAO implements DBIdentifyingDAO {
     @Override
     public void put(List<DataBaseIdentifying> list) {
 
-        try {
-            Connection connection = jdbcConnector.connect();
+        try (Connection connection = jdbcConnector.connect()) {
             connection.createStatement().execute("begin transaction");
             PreparedStatement statement = connection.prepareStatement(SQL_SELECT);
             for (DataBaseIdentifying entity : list) {
-                statement.setDate(1, new java.sql.Date(entity.getDate().getTime()));
+                statement.setTimestamp(1, Timestamp.valueOf(entity.getDate()));
                 statement.setString(2, entity.getFreq());
                 statement.setString(3, entity.getCoun());
                 statement.setString(4, entity.getTown());

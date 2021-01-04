@@ -2,7 +2,7 @@ package kmn.marduk.db.impl;
 
 import java.sql.Connection;
 import java.util.Properties;
-
+//Класс подключения к SQLServer
 public class DBConnection {
     private final JDBCConnector jdbcConnector;
 

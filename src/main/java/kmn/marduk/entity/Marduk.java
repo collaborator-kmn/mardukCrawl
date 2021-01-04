@@ -1,11 +1,10 @@
 package kmn.marduk.entity;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Marduk {
 
-    private Date DATE_BEG;
+    private LocalDateTime DATE_BEG;
     private String FREQ_HZ;
     private String WHO_IS_COUNTRY;
     private String WHO_IS_BRANCH;
@@ -14,8 +13,8 @@ public class Marduk {
     private String TO;
     private String FROM;
 
-    public Date getDATE_BEG() { return DATE_BEG;}
-    public void setDATE_BEG(Date DATE_REG){this.DATE_BEG = DATE_BEG;}
+    public LocalDateTime getDATE_BEG() { return DATE_BEG;}
+    public void setDATE_BEG(LocalDateTime DATE_BEG){this.DATE_BEG = DATE_BEG;}
     public String getFREQ_HZ() {return FREQ_HZ;}
     public void setFREQ_HZ(String FREQ_HZ){this.FREQ_HZ = FREQ_HZ;}
     public String getWHO_IS_COUNTRY() {return WHO_IS_COUNTRY;}

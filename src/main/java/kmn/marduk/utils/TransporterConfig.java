@@ -11,13 +11,12 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.Properties;
 
+//Установки конфигурации транспортировщика
+
 public class TransporterConfig {
 
     Date start;
     Date end;
-
-    public TransporterConfig(){
-    }
 
     public TransporterConfig(Date start, Date end){
         this.start = start;
@@ -33,23 +32,24 @@ public class TransporterConfig {
     }
 
     public static TransporterConfig newInstance() {
-
-        if (Files.exists(Paths.get(SettingStorage.DATE_SETTINGS))){
-            Properties properties = ReaderUtils.readPropertiesFromFile(SettingStorage.DATE_SETTINGS);
+// Проверяем наличие файла с настройками дат, если файл отстутсвует берём значения start и end по умолчанию
+        if (Files.exists(Paths.get(SettingStorage.TRANSPORT_PROPERTIES))){
+            Properties properties = ReaderUtils.readPropertiesFromFile(SettingStorage.TRANSPORT_PROPERTIES);
             String start = properties.getProperty("start");
             String end = properties.getProperty("end");
             try {
-                Date dateStart = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").parse(start);
-                Date dateEnd = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").parse(end);
-                return new TransporterConfig(dateStart, dateEnd);
+               Date dateStart = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").parse(start);
+               Date dateEnd = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").parse(end);
+               return new TransporterConfig(dateStart, dateEnd);
 
             } catch (ParseException e) {
                 e.printStackTrace();
+                System.out.println("Проверьте формат даты, он должен соответствовать dd.MM.yyyy HH:mm:ss");
             }
         }
 
             LocalDate firstDate = LocalDate.now().minusDays(1);
-            LocalTime time = LocalTime.of(9, 00, 00);
+            LocalTime time = LocalTime.of(9, 0, 0);
             LocalDate secondDate = LocalDate.now();
             LocalDateTime startM = LocalDateTime.of(firstDate, time);
             LocalDateTime endM = LocalDateTime.of(secondDate, time);

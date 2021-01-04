@@ -5,12 +5,15 @@ import kmn.marduk.entity.Marduk;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+
+//Класс, преобразующий SQL Resultset к типу Мардук
 
 public class MardukMapper implements Mapper<Marduk, SQLException> {
 
     public Marduk process(ResultSet resultSet) throws SQLException {
         Marduk marduk = new Marduk();
-        marduk.setDATE_BEG(resultSet.getDate("DATE_BEG"));
+        marduk.setDATE_BEG(resultSet.getTimestamp("DATE_BEG").toLocalDateTime());
         marduk.setFREQ_HZ(resultSet.getString("FREQ_HZ"));
         marduk.setWHO_IS_COUNTRY(resultSet.getString("WHO_IS_COUNTRY"));
         marduk.setWHO_IS_BRANCH(resultSet.getString("WHO_IS_BRANCH"));

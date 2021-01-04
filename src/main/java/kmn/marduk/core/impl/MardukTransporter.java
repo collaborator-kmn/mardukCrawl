@@ -11,9 +11,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ *Класс, в котором происходит сам процесс транспортировки списка сущностей типа Мардук
+ *в список сущностей типа БД Выявлений
+ */
 public class MardukTransporter extends AbstractTransporter {
-    private  Date start;
-    private Date end;
+    Date start;
+    Date end;
 
     public MardukTransporter(Context context){
         super(context);
@@ -36,6 +40,7 @@ public class MardukTransporter extends AbstractTransporter {
                 e.printStackTrace();
             }
         }
+        //listDataBaseIdentifying.forEach(System.out::println);
         getContext().getDBIdentifyingDao().put(listDataBaseIdentifying);
     }
 

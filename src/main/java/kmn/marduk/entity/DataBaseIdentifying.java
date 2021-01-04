@@ -1,9 +1,10 @@
 package kmn.marduk.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 public class DataBaseIdentifying {
-    private Date date;
+    private LocalDateTime date;
     private String freq;
     private String town;
     private String coun;
@@ -13,8 +14,8 @@ public class DataBaseIdentifying {
     private String from;
     private String anal;
 
-    public Date getDate() { return date;}
-    public void setDate(Date date){this.date = date;}
+    public LocalDateTime getDate() { return date;}
+    public void setDate(LocalDateTime date){this.date = date;}
     public String getFreq() {return freq;}
     public void setFreq(String freq) {this.freq = freq;}
     public String getTown() {return town;}

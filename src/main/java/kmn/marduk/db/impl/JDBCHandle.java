@@ -7,7 +7,7 @@ import java.util.Properties;
 
 /**
  * Класс-мост для <code>JDBCConnector</code> выполняющий примитивные операции
- * например подключение в базе данных и возврат объектра <code>Connection</code>
+ * например подключение в базе данных и возврат объекта <code>Connection</code>
 
  */
 public abstract class JDBCHandle {

@@ -4,9 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-/**
- * Nickolay Burdiladze
- */
+//Класс, для чтения настроек из файла
+
 public class ReaderUtils {
 
 
