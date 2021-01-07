@@ -1,11 +1,14 @@
 package kmn.marduk.core.impl;
 
 import kmn.marduk.common.processor.ProcessException;
-import kmn.marduk.core.Context;
 import kmn.marduk.core.AbstractTransporter;
+import kmn.marduk.core.Context;
+import kmn.marduk.core.Transporter;
 import kmn.marduk.entity.DataBaseIdentifying;
 import kmn.marduk.entity.Marduk;
 import kmn.marduk.utils.TransporterConfig;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,6 +19,7 @@ import java.util.List;
  *в список сущностей типа БД Выявлений
  */
 public class MardukTransporter extends AbstractTransporter {
+    private static final Logger logger = Logger.getLogger(Transporter.class);
     private Date start;
     private Date end;
 
@@ -27,20 +31,24 @@ public class MardukTransporter extends AbstractTransporter {
         super(context);
         this.start = transporterConfig.getStartDate();
         this.end = transporterConfig.getEndDate();
+        logger.info("get context and transporter config");
     }
 
     public void run() {
         List<Marduk> listMardukEntity = getContext().getMardukDao().get(start, end);
+        logger.info("get listMardukEntity");
         List<DataBaseIdentifying> listDataBaseIdentifying = new ArrayList<>();
+        logger.info("create listDataBaseIdentifying");
 
         for (Marduk marduk : listMardukEntity){
             try {
                 listDataBaseIdentifying.add(getContext().getProcess().process(marduk));
             } catch (ProcessException e) {
-                e.printStackTrace();
+                logger.log(Level.ERROR, "Error to add entity in listDataBaseIdentifying");
             }
         }
         getContext().getDBIdentifyingDao().put(listDataBaseIdentifying);
+        logger.info("Successful put listMardukEntity in to listDataBaseIdentifying ");
     }
 
 }

@@ -5,9 +5,13 @@ import kmn.marduk.db.impl.ConnectorException;
 import kmn.marduk.db.impl.JDBCConnector;
 import kmn.marduk.db.impl.SQLServerHandle;
 import kmn.marduk.entity.DataBaseIdentifying;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
-import java.sql.*;
-import java.util.Iterator;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Properties;
 
@@ -18,6 +22,8 @@ import java.util.Properties;
 
 
 public class DBIdentifyingSQLServerDAO implements DBIdentifyingDAO {
+
+    private static final Logger logger = Logger.getLogger(DBIdentifyingDAO.class);
 
     private static final String SQL_SELECT = "insert into Table1(id, date, freq, coun, town, num, oper, anal) " +
             " values ((select max(id)+1 from Table1), ?, ?, ?, ?, ?, ?, '')";
@@ -47,7 +53,7 @@ public class DBIdentifyingSQLServerDAO implements DBIdentifyingDAO {
             statement.close();
             connection.createStatement().execute("commit");
         } catch (ConnectorException | SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.ERROR, "Error to put fields in DBIdentifying");
         }
     }
 }

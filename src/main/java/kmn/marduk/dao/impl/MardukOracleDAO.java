@@ -3,12 +3,13 @@ package kmn.marduk.dao.impl;
 import kmn.marduk.common.impl.MardukOracleFactory;
 import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.entity.Marduk;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +18,8 @@ import java.util.List;
  *
  */
 public class MardukOracleDAO implements MardukDAO {
+
+    private static final Logger logger = Logger.getLogger(MardukDAO.class);
 
     MardukOracleFactory mardukFactory;
     private static final String SQL_SELECT =
@@ -55,7 +58,7 @@ public class MardukOracleDAO implements MardukDAO {
                 statement.close();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+           logger.log(Level.ERROR, "Error to get fields from MardukOracle");
         } 
         return list;
     }

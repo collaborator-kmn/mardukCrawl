@@ -6,11 +6,14 @@ import kmn.marduk.dao.DBIdentifyingDAO;
 import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.entity.DataBaseIdentifying;
 import kmn.marduk.entity.Marduk;
+import org.apache.log4j.Logger;
 
 
 /**Реализация контекста
   */
 public class ContextImpl implements Context {
+    private static final Logger logger = Logger.getLogger(Context.class);
+
     private MardukDAO mardukDAO;
     private DBIdentifyingDAO dbIdentifyingDAO;
     private Processor<Marduk, DataBaseIdentifying> processor;
@@ -20,6 +23,7 @@ public class ContextImpl implements Context {
         this.mardukDAO = mardukDAO;
         this.dbIdentifyingDAO = dbIdentifyingDAO;
         this.processor = processor;
+        logger.info("Context created");
     }
 
     @Override
