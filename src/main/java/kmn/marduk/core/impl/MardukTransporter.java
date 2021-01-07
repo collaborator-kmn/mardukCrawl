@@ -19,7 +19,7 @@ public class MardukTransporter extends AbstractTransporter {
     Date start;
     Date end;
 
-    public MardukTransporter(Context context){
+    private MardukTransporter(Context context){
         super(context);
     }
 
@@ -40,7 +40,6 @@ public class MardukTransporter extends AbstractTransporter {
                 e.printStackTrace();
             }
         }
-        //listDataBaseIdentifying.forEach(System.out::println);
         getContext().getDBIdentifyingDao().put(listDataBaseIdentifying);
     }
 

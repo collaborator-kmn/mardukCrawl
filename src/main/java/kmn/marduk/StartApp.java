@@ -25,10 +25,7 @@ public class StartApp {
         Transporter mardukTransporter =
                 new MardukTransporter(context, TransporterConfig.newInstance());
 
-
         mardukTransporter.run();
-        System.out.println(TransporterConfig.newInstance().getStartDate());
-        System.out.println(TransporterConfig.newInstance().getEndDate());
     }
 
 }
