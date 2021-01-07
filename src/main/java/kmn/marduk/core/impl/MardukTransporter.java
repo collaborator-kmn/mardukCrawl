@@ -16,10 +16,10 @@ import java.util.List;
  *в список сущностей типа БД Выявлений
  */
 public class MardukTransporter extends AbstractTransporter {
-    Date start;
-    Date end;
+    private Date start;
+    private Date end;
 
-    private MardukTransporter(Context context){
+    public MardukTransporter(Context context){
         super(context);
     }
 

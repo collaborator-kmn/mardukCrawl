@@ -19,7 +19,7 @@ import java.util.Properties;
 public class MardukOracleFactory implements MardukFactory {
     private final JDBCConnector jdbcConnector;
 
-    private MardukOracleFactory(Properties properties){
+    public MardukOracleFactory(Properties properties){
          jdbcConnector = new JDBCConnector(new OracleHandle(properties));
     }
 
