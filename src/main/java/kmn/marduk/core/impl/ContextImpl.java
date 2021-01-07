@@ -7,6 +7,9 @@ import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.entity.DataBaseIdentifying;
 import kmn.marduk.entity.Marduk;
 
+
+/**Реализация контекста
+  */
 public class ContextImpl implements Context {
     private MardukDAO mardukDAO;
     private DBIdentifyingDAO dbIdentifyingDAO;

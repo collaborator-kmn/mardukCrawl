@@ -13,7 +13,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
-
+/** Реализация фабрики MardukOracle
+ *
+ */
 public class MardukOracleFactory implements MardukFactory {
     private final JDBCConnector jdbcConnector;
 

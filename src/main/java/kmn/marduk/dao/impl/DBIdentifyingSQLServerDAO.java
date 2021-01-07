@@ -11,8 +11,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
-//В классе подключаемся к БД SQLServer
-//и кладём данные из списка полученных сущностей в таблицу SQLServer
+/**В классе подключаемся к БД SQLServer
+ * и кладём данные из списка полученных сущностей в таблицу SQLServer
+ */
+
+
 
 public class DBIdentifyingSQLServerDAO implements DBIdentifyingDAO {
 

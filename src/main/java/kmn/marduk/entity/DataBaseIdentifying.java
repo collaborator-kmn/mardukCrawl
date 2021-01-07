@@ -2,7 +2,8 @@ package kmn.marduk.entity;
 
 import java.time.LocalDateTime;
 
-
+/** Сущности БД
+ */
 public class DataBaseIdentifying {
     private LocalDateTime date;
     private String freq;

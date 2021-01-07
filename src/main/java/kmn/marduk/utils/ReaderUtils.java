@@ -4,12 +4,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-//Класс, для чтения настроек из файла
+/**Класс, для чтения настроек из файла
+ *
+ */
 
 public class ReaderUtils {
 
 
-   public ReaderUtils() {
+   private ReaderUtils() {
    }
 
     public static Properties readPropertiesFromFile(String file){

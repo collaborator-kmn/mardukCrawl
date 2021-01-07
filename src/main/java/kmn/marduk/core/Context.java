@@ -6,9 +6,11 @@ import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.entity.DataBaseIdentifying;
 import kmn.marduk.entity.Marduk;
 
-//Контекст(окружение), включает в себя оба шлюза(oracle, sqlserver)
-//и маппер преобразующий сущность типа Мардук к сущности БД
-//контекст передаём в класс MardukTransporter
+/**Контекст(окружение), включает в себя оба шлюза(oracle, sqlserver)
+ * и маппер преобразующий сущность типа Мардук к сущности БД
+ * контекст передаём в класс MardukTransporter
+ */
+
 
 public interface  Context {
     MardukDAO getMardukDao();

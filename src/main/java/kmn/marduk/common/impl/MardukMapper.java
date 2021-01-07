@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
-//Класс, преобразующий SQL Resultset к типу Мардук
+/**Класс, преобразующий SQL Resultset к типу Мардук
+ *
+ */
 
 public class MardukMapper implements Mapper<Marduk, SQLException> {
 

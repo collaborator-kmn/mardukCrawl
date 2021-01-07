@@ -7,7 +7,8 @@ import kmn.marduk.entity.Marduk;
 import java.sql.Date;
 import java.util.Arrays;
 
-//Класс, преобрузующий сущности типа Мардук в сущность БД
+/** Класс, преобрузующий сущности типа Мардук в сущность БД
+ */
 
 public class Marduk2DBIdentifyingProcessor implements Processor<Marduk, DataBaseIdentifying> {
     @Override

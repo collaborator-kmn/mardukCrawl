@@ -11,14 +11,16 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.Properties;
 
-//Установки конфигурации транспортировщика
+/** Установки конфигурации транспортировщика
+ *
+ */
 
 public class TransporterConfig {
 
     Date start;
     Date end;
 
-    public TransporterConfig(Date start, Date end){
+    private TransporterConfig(Date start, Date end){
         this.start = start;
         this.end = end;
     }
@@ -32,7 +34,9 @@ public class TransporterConfig {
     }
 
     public static TransporterConfig newInstance() {
-// Проверяем наличие файла с настройками дат, если файл отстутсвует берём значения start и end по умолчанию
+/**Проверяем наличие файла с настройками дат, если файл отстутсвует берём значения start и end по умолчанию
+ *
+ */
         if (Files.exists(Paths.get(SettingStorage.TRANSPORT_PROPERTIES))){
             Properties properties = ReaderUtils.readPropertiesFromFile(SettingStorage.TRANSPORT_PROPERTIES);
             String start = properties.getProperty("start");

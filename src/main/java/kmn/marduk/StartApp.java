@@ -17,15 +17,16 @@ public class StartApp {
 
         SettingStorage.init();
 
-//        MardukOracleDAO mardukOracleDAO = new MardukOracleDAO((MardukOracleFactory)MardukOracleFactory.newInstance());
-//        DBIdentifyingSQLServerDAO dbIdentifyingSQLServerDAO = new DBIdentifyingSQLServerDAO(ReaderUtils.readPropertiesFromFile(SettingStorage.SQLSERVER_PROPERTIES));
-//        Marduk2DBIdentifyingProcessor marduk2DBIdentifyingProcessor = new Marduk2DBIdentifyingProcessor();
-//        ContextImpl context = new ContextImpl(mardukOracleDAO, dbIdentifyingSQLServerDAO,marduk2DBIdentifyingProcessor);
-//
-//        Transporter mardukTransporter =
-//                new MardukTransporter(context, TransporterConfig.newInstance());
-//
-//        mardukTransporter.run();
+        MardukOracleDAO mardukOracleDAO = new MardukOracleDAO((MardukOracleFactory)MardukOracleFactory.newInstance());
+        DBIdentifyingSQLServerDAO dbIdentifyingSQLServerDAO = new DBIdentifyingSQLServerDAO(ReaderUtils.readPropertiesFromFile(SettingStorage.SQLSERVER_PROPERTIES));
+        Marduk2DBIdentifyingProcessor marduk2DBIdentifyingProcessor = new Marduk2DBIdentifyingProcessor();
+        ContextImpl context = new ContextImpl(mardukOracleDAO, dbIdentifyingSQLServerDAO,marduk2DBIdentifyingProcessor);
+
+        Transporter mardukTransporter =
+                new MardukTransporter(context, TransporterConfig.newInstance());
+
+
+        mardukTransporter.run();
         System.out.println(TransporterConfig.newInstance().getStartDate());
         System.out.println(TransporterConfig.newInstance().getEndDate());
     }

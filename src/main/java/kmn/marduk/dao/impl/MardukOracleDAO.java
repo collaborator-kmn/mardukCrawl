@@ -13,7 +13,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+/** Реализация шлюза для получения данных из БД Oracle
+ *
+ */
 public class MardukOracleDAO implements MardukDAO {
 
     MardukOracleFactory mardukFactory;

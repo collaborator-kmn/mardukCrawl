@@ -2,6 +2,9 @@ package kmn.marduk.entity;
 
 import java.time.LocalDateTime;
 
+/** Сущности Мардук
+ *
+ */
 public class Marduk {
 
     private LocalDateTime DATE_BEG;
@@ -12,6 +15,7 @@ public class Marduk {
     private int SEANCE;
     private String TO;
     private String FROM;
+//    private String OBJECT;
 
     public LocalDateTime getDATE_BEG() { return DATE_BEG;}
     public void setDATE_BEG(LocalDateTime DATE_BEG){this.DATE_BEG = DATE_BEG;}
