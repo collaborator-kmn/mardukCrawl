@@ -1,4 +1,4 @@
-package kmn.marduk.common.processor;
+package kmn.marduk.core.transformation.marduk2sqlserver.processor;
 
 /** Обработка исключений
  *

@@ -1,4 +1,4 @@
-package kmn.marduk.common;
+package kmn.marduk.core.transformation.resultset2marduk;
 import java.sql.ResultSet;
 
 /** Преобразование resultset к типу T

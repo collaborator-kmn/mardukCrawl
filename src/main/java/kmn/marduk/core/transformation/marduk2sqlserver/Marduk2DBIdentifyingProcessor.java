@@ -1,10 +1,9 @@
-package kmn.marduk.common.impl;
+package kmn.marduk.core.transformation.marduk2sqlserver;
 
-import kmn.marduk.common.processor.Processor;
+import kmn.marduk.core.transformation.marduk2sqlserver.processor.Processor;
 import kmn.marduk.entity.DataBaseIdentifying;
 import kmn.marduk.entity.Marduk;
 
-import java.sql.Date;
 import java.util.Arrays;
 
 /** Класс, преобрузующий сущности типа Мардук в сущность БД

@@ -1,6 +1,6 @@
-package kmn.marduk.core;
+package kmn.marduk.core.context;
 
-import kmn.marduk.common.processor.Processor;
+import kmn.marduk.core.transformation.marduk2sqlserver.processor.Processor;
 import kmn.marduk.dao.DBIdentifyingDAO;
 import kmn.marduk.dao.MardukDAO;
 import kmn.marduk.entity.DataBaseIdentifying;

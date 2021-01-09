@@ -1,7 +1,8 @@
 package kmn.marduk.common.impl;
 
-import kmn.marduk.common.Mapper;
+import kmn.marduk.core.transformation.resultset2marduk.Mapper;
 import kmn.marduk.common.MardukFactory;
+import kmn.marduk.core.transformation.resultset2marduk.impl.MardukMapper;
 import kmn.marduk.db.impl.ConnectorException;
 import kmn.marduk.db.impl.JDBCConnector;
 import kmn.marduk.db.impl.OracleHandle;

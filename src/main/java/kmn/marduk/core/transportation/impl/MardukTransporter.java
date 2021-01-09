@@ -1,9 +1,9 @@
-package kmn.marduk.core.impl;
+package kmn.marduk.core.transportation.impl;
 
-import kmn.marduk.common.processor.ProcessException;
-import kmn.marduk.core.AbstractTransporter;
-import kmn.marduk.core.Context;
-import kmn.marduk.core.Transporter;
+import kmn.marduk.core.transformation.marduk2sqlserver.processor.ProcessException;
+import kmn.marduk.core.transportation.AbstractTransporter;
+import kmn.marduk.core.context.Context;
+import kmn.marduk.core.transportation.Transporter;
 import kmn.marduk.entity.DataBaseIdentifying;
 import kmn.marduk.entity.Marduk;
 import kmn.marduk.utils.TransporterConfig;

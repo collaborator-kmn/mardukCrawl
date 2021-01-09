@@ -1,5 +1,7 @@
-package kmn.marduk.core;
+package kmn.marduk.core.transportation;
 
+
+import kmn.marduk.core.context.Context;
 
 public abstract class AbstractTransporter implements Transporter {
 

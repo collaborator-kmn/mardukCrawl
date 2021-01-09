@@ -1,11 +1,10 @@
-package kmn.marduk.common.impl;
+package kmn.marduk.core.transformation.resultset2marduk.impl;
 
-import kmn.marduk.common.Mapper;
+import kmn.marduk.core.transformation.resultset2marduk.Mapper;
 import kmn.marduk.entity.Marduk;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 
 /**Класс, преобразующий SQL Resultset к типу Мардук
  *
