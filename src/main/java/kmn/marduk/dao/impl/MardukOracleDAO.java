@@ -42,6 +42,8 @@ public class MardukOracleDAO implements MardukDAO {
 
 
     public List<Marduk> get(Date start, Date end) {
+        logger.info("Date start: "+ start);
+        logger.info("Date end: "+ end);
         List<Marduk> list = null;
         SimpleDateFormat fmt = new SimpleDateFormat("YYYY-MM-DD HH:mm:ss");
         try (Connection connection = mardukFactory.getConnection()) {
@@ -57,6 +59,7 @@ public class MardukOracleDAO implements MardukDAO {
                 resultSet.close();
                 statement.close();
             }
+            logger.info("List size: " + list.size());
         } catch (Exception e) {
            logger.log(Level.ERROR, "Error to get fields from MardukOracle");
         } 
