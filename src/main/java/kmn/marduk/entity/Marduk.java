@@ -13,9 +13,13 @@ public class Marduk {
     private String WHO_IS_BRANCH;
     private String SIG_TYPE;
     private int SEANCE;
-    private String TO;
-    private String FROM;
-//    private String OBJECT;
+    private String RECEIVER;
+    private String SENDER;
+    private String WHO_IS;
+    private String REM;
+    private String PLACE_REGION;
+    private String PLACE_COUNTRY;
+    private String PLACE_NAME;
 
     public LocalDateTime getDATE_BEG() { return DATE_BEG;}
     public void setDATE_BEG(LocalDateTime DATE_BEG){this.DATE_BEG = DATE_BEG;}
@@ -29,10 +33,20 @@ public class Marduk {
     public void setSIG_TYPE(String SIG_TYPE) {this.SIG_TYPE = SIG_TYPE;}
     public int getSEANCE() {return SEANCE;}
     public void setSEANCE(int SEANCE) {this.SEANCE = SEANCE;}
-    public String getTO() {return TO;}
-    public void setTO(String TO){this.TO = TO;}
-    public String getFROM() {return FROM;}
-    public void setFROM(String FROM) {this.FROM = FROM;}
+    public String getRECEIVER() {return RECEIVER;}
+    public void setRECEIVER(String RECEIVER){this.RECEIVER = RECEIVER;}
+    public String getSENDER() {return SENDER;}
+    public void setSENDER(String SENDER) {this.SENDER = SENDER;}
+    public String getWHO_IS() {return WHO_IS;}
+    public void setWHO_IS(String WHO_IS) {this.WHO_IS = WHO_IS;}
+    public String getREM() {return REM;}
+    public void setREM(String REM) {this.REM = REM;}
+    public String getPLACE_REGION() {return PLACE_REGION;}
+    public void setPLACE_REGION(String PLACE_REGION) {this.PLACE_REGION = PLACE_REGION;}
+    public String getPLACE_COUNTRY() {return PLACE_COUNTRY;}
+    public void setPLACE_COUNTRY(String PLACE_COUNTRY) {this.PLACE_COUNTRY = PLACE_COUNTRY;}
+    public String getPLACE_NAME() {return PLACE_NAME;}
+    public void setPLACE_NAME(String PLACE_NAME) {this.PLACE_NAME = PLACE_NAME;}
 
     public String toString(){
         return "marduk.Marduk{" +
@@ -42,8 +56,8 @@ public class Marduk {
                 ", WHO_IS_BRANCH="+ WHO_IS_BRANCH +'\'' +
                 ", SIG_TYPE="+ SIG_TYPE +'\'' +
                 ", SEANCE="+ SEANCE +'\'' +
-                ", TO="+ TO +'\'' +
-                ", FROM="+ FROM + '\'' +
+                ", TO="+ RECEIVER +'\'' +
+                ", FROM="+ SENDER + '\'' +
                 '}';
     }
 }

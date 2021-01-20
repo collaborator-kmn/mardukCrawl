@@ -15,6 +15,9 @@ public class DataBaseIdentifying {
     private String from;
     private String anal;
 
+    private String comm;
+
+
     public LocalDateTime getDate() { return date;}
     public void setDate(LocalDateTime date){this.date = date;}
     public String getFreq() {return freq;}
@@ -32,7 +35,10 @@ public class DataBaseIdentifying {
     public String getFrom(){return from;}
     public void setFrom(String from) {this.from = from;}
     public String getAnal() {return anal;}
-    public void setAnal(String anal){this.anal= anal;}
+    public void setAnal(String anal){this.anal = anal;}
+    public String getComm() {return comm;}
+    public void setComm(String comm){this.comm = comm;}
+
 
     public String toString(){
         return "main.java.DataBaseIdentifying{" +

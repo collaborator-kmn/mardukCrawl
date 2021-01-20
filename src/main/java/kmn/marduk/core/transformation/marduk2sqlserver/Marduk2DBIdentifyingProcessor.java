@@ -15,12 +15,12 @@ public class Marduk2DBIdentifyingProcessor implements Processor<Marduk, DataBase
         DataBaseIdentifying dataBaseIdentifying = new DataBaseIdentifying();
         dataBaseIdentifying.setDate(marduk.getDATE_BEG());
         dataBaseIdentifying.setFreq(substringFromEnd(marduk.getFREQ_HZ()));
-        dataBaseIdentifying.setTown(marduk.getWHO_IS_COUNTRY());
-        dataBaseIdentifying.setCoun(marduk.getWHO_IS_BRANCH());
         dataBaseIdentifying.setNum(marduk.getSIG_TYPE());
         dataBaseIdentifying.setOper(marduk.getSEANCE());
-//        dataBaseIdentifying.setTo(marduk.getTO());
-//        dataBaseIdentifying.setFrom(marduk.getFROM());
+        dataBaseIdentifying.setCoun(isStringEmpty(marduk.getWHO_IS_COUNTRY()) ? marduk.getPLACE_COUNTRY() : marduk.getWHO_IS_COUNTRY());
+        dataBaseIdentifying.setTown(isStringEmpty(marduk.getWHO_IS_BRANCH()) ? createPlace(marduk) : normalizeString(marduk.getWHO_IS_BRANCH()));
+        dataBaseIdentifying.setComm(createComment(marduk));
+        
         dataBaseIdentifying.setAnal("");
         return dataBaseIdentifying;
     }
@@ -29,6 +29,29 @@ public class Marduk2DBIdentifyingProcessor implements Processor<Marduk, DataBase
         char[] chars = str.toCharArray();
         char[] res = Arrays.copyOf(chars, chars.length-3);
         return new String(res);
+    }
+
+    private boolean isStringEmpty(String str){
+        return !(str != null && str.length() > 0);
+    }
+
+    private String createComment(Marduk marduk){
+        return (isStringEmpty(marduk.getSENDER()) && isStringEmpty(marduk.getRECEIVER()))
+                ? !isStringEmpty(marduk.getWHO_IS()) ? normalizeString(marduk.getWHO_IS()) : normalizeString(marduk.getREM())
+                : normalizeString(marduk.getSENDER()) + " -> " + normalizeString(marduk.getRECEIVER())+";" + normalizeString(marduk.getREM());
+    }
+
+    private String createPlace(Marduk marduk) {
+        String res = "";
+        if (!isStringEmpty(marduk.getPLACE_NAME()))
+            res += normalizeString(marduk.getPLACE_NAME());
+        if (!isStringEmpty(marduk.getPLACE_REGION()))
+            res += "/"+normalizeString(marduk.getPLACE_REGION());
+        return res;
+    }
+
+    private String normalizeString(String str) {
+        return str == null ? "" : str;
     }
 
 }
